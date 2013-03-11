@@ -5,7 +5,8 @@ class BranchView {
     String branchName
 
     public String getViewName() {
-        return "$templateJobPrefix-$safeBranchName"
+		List nameParts = "$safeBranchName".tokenize('_');
+		return nameParts.get(nameParts.size-1);
     }
 
     public String getSafeBranchName() {

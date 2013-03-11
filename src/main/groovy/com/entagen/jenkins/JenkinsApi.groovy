@@ -86,6 +86,7 @@ class JenkinsApi {
         // this is in case there are other down-stream jobs that this job calls, we want to be sure we're replacing their names as well
         templateJobs.each {
             config = config.replaceAll(it.jobName, it.jobNameForBranch(missingJob.branchName))
+			config = config.replaceAll("<disabled>true</disabled>", "<disabled>false</disabled>")
         }
 
         return config
