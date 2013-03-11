@@ -8,8 +8,8 @@ class BranchView {
     public String getViewName() {
 		List nameParts = "$safeBranchName".tokenize('_');
 		String viewName = nameParts.get(nameParts.size-1);
-		if(viewName.size > limit){
-			viewName = viewName.subString(0,limit-3)+"...";
+		if(viewName.size() > limit){
+			viewName = viewName.substring(0,limit-3)+"...";
 		}
 		return viewName;
     }
