@@ -110,7 +110,9 @@ class JenkinsJobManager {
 
     public void syncViews(List<String> allBranchNames) {
         List<String> existingViewNames = jenkinsApi.getViewNames(this.nestedView)
+		println "Existing views: $existingViewNames"
         List<BranchView> expectedBranchViews = allBranchNames.collect { String branchName -> new BranchView(branchName: branchName, templateJobPrefix: this.templateJobPrefix) }
+        println "Expected views: $expectedBranchViews"
 
         List<BranchView> missingBranchViews = expectedBranchViews.findAll { BranchView branchView -> !existingViewNames.contains(branchView.viewName)}
         addMissingViews(missingBranchViews)

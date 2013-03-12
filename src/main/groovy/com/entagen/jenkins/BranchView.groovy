@@ -11,7 +11,7 @@ class BranchView {
 		if(viewName.size() > limit){
 			viewName = viewName.substring(0,limit-3)+"...";
 		}
-		return viewName;
+		return templateJobPrefix+"-"+viewName;
     }
 
     public String getSafeBranchName() {
